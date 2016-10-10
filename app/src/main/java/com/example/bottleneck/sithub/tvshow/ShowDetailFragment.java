@@ -22,6 +22,8 @@ import com.example.bottleneck.sithub.traktapi.Show;
 import com.example.bottleneck.sithub.traktapi.TraktapiHelper;
 import com.example.bottleneck.sithub.util.CustomRequest;
 import com.example.bottleneck.sithub.util.MyApplication;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -34,6 +36,7 @@ public class ShowDetailFragment extends Fragment {
 
     private boolean mIsOnWatchList;
     private Show mShow;
+    private AdView mAdView;
 
     private static final String BUNDLE_SHOW_OBJECT = "show";
 
@@ -95,10 +98,35 @@ public class ShowDetailFragment extends Fragment {
 
         // set action bar title
         getActivity().setTitle("Summary");
-
+        mAdView = (AdView) rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
         return rootView;
     }
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -106,6 +134,7 @@ public class ShowDetailFragment extends Fragment {
     }
 
     private void populateUi(View rootView) {
+
         ImageLoader imageLoader = MyApplication.getInstance().getImageLoader();
         NetworkImageView imgPoster = (NetworkImageView) rootView.findViewById(R.id.imgPoster);
         imgPoster.setImageUrl(mShow.getPosterUrl(), imageLoader);

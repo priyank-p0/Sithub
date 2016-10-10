@@ -27,7 +27,7 @@ public class WidgetProvider extends AppWidgetProvider {
             Intent remoteViewServiceIntent = new Intent(context, WidgetRemoteViewsService.class);
             remoteViewServiceIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
             remoteViewServiceIntent.setData(Uri.parse(remoteViewServiceIntent.toUri(Intent.URI_INTENT_SCHEME)));
-            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_individual);
+            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
             remoteViews.setRemoteAdapter(widgetId, R.id.widget_listview, remoteViewServiceIntent);
             appWidgetManager.updateAppWidget(widgetId, remoteViews);
 

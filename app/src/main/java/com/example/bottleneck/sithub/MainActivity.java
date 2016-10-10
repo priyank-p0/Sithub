@@ -20,6 +20,9 @@ import android.widget.ListView;
 
 import com.example.bottleneck.sithub.SubscribedList.SubscribedListFragment;
 import com.example.bottleneck.sithub.search.SearchFragment;
+import com.example.bottleneck.sithub.util.MyApplication;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -34,12 +37,15 @@ public class MainActivity extends AppCompatActivity {
      * The search screen id
      */
     public static final int SCREEN_SEARCH = 1;
+    private Tracker mTracker;
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MyApplication application=(MyApplication)getApplication();
+        mTracker = application.getDefaultTracker();
 
         mTitle = mDrawerTitle = getTitle();
         mMenuItems = getResources().getStringArray(R.array.main_menu_items);
@@ -92,6 +98,12 @@ public class MainActivity extends AppCompatActivity {
         SubscribedListFragment fragment = new SubscribedListFragment();
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, fragment).commit();
+//        AdView mAdView = (AdView)findViewById(R.id.adView);
+
+      //  AdRequest adRequest = new AdRequest.Builder()
+        //        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+          //      .build();
+        //mAdView.loadAd(adRequest);
     }
 
     @Override
@@ -173,6 +185,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+
+        mTracker.setScreenName("Image~" + null);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
     }

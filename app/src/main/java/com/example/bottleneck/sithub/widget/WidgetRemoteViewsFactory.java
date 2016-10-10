@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     private Context Context;
      static private ArrayList<Show> shows;
-        int ctr;
+       static int ctr=0;
     private SithubDatabaseHelper mDbHelper;
     public WidgetRemoteViewsFactory(Context mContext) {
         this.Context = mContext;
@@ -28,17 +28,19 @@ public class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
         mDbHelper = new SithubDatabaseHelper(Context);
         Cursor c = mDbHelper.getWatchList();
         int n=c.getColumnCount();
-        ctr=1;
         if(c!=null){
             c.moveToFirst();
             do{
                 Show sh=new Show();
-                ctr++;
+
+
                 sh.setTitle(c.getString(c.getColumnIndex(SithubContract.WatchListEntry.COLUMN_NAME_SHOW_NAME)));
   //              int ctr= Integer.parseInt(SithubContract.WatchListEntry._ID);
                 shows.add(sh);
+
              //   sh=null;
             }while (c.moveToNext());
+
         }
         c.close();
 

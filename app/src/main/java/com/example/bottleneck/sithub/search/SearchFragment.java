@@ -23,6 +23,8 @@ import com.example.bottleneck.sithub.traktapi.TraktapiHelper;
 import com.example.bottleneck.sithub.tvshow.ShowListActivity;
 import com.example.bottleneck.sithub.util.CustomRequest;
 import com.example.bottleneck.sithub.util.MyApplication;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import org.json.JSONException;
 
@@ -40,19 +42,21 @@ public class SearchFragment extends Fragment {
 
     private EditText mTxtSearch;
     private Button mBtnSearch;
+    private AdView mAdView;
 
     private ProgressDialog mDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_search,
                 container, false);
 
-        // init ui components for searching
         initSearchUi(inflatedView);
-
+        mAdView = (AdView) inflatedView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
         // results list view
         mListView = (ListView) inflatedView
                 .findViewById(R.id.search_results_list);
@@ -73,7 +77,29 @@ public class SearchFragment extends Fragment {
 
         return inflatedView;
     }
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
     private void initSearchUi(View inflatedView) {
         mTxtSearch = (EditText) inflatedView
                 .findViewById(R.id.txtSearch);

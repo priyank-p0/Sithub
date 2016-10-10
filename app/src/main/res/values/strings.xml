@@ -75,9 +75,8 @@
 <string name="watchlist_added">Show added to Watch List</string>
 
 <string name="show_retrieving">Retrieving information, please wait</string>
-
 <string name="show_year_unknown">Unknown</string>
-
+<string name="banner_ad_id">ca-app-pub-1747771231914335/3706326400</string>
 <string name="activity_title_summary">Summary</string>
 
 <string name="search_activity_title">Search</string>
