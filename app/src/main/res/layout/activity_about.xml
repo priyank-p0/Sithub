@@ -8,8 +8,8 @@
         android:id="@+id/lblAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="14dp"
         android:text="Priyank Patel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -18,7 +18,7 @@
         android:id="@+id/lblWebsite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblAuthor"
+        android:layout_alignStart="@+id/lblAuthor"
         android:layout_below="@+id/lblAuthor"
         android:text="Udacity capstone project"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -27,7 +27,7 @@
         android:id="@+id/lblTraktCredits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblWebsite"
+        android:layout_alignStart="@+id/lblWebsite"
         android:layout_below="@+id/lblWebsite"
         android:layout_marginTop="25dp"
         android:text="@string/trakt_credits"

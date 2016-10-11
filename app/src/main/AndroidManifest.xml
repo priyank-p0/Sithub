@@ -13,6 +13,11 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         android:name=".util.MyApplication"
         >
+
+        <provider android:name="com.example.bottleneck.sithub.ShowProvider" android:authorities="com.example.provider.Show">
+
+
+        </provider>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

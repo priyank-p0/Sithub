@@ -11,9 +11,9 @@
             android:id="@+id/lblSelectEpisode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/select_episode"
             android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -22,15 +22,15 @@
             android:id="@+id/spnEpisode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/lblSelectEpisode"
+            android:layout_alignStart="@+id/lblSelectEpisode"
             android:layout_below="@+id/lblSelectEpisode"
-            android:layout_marginRight="10dp" />
+            android:layout_marginEnd="10dp" />
 
         <TextView
             android:id="@+id/lblEpisodeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/spnEpisode"
+            android:layout_alignStart="@+id/spnEpisode"
             android:layout_below="@+id/spnEpisode"
             android:layout_marginTop="14dp"
             android:text="@string/episode_title_placeholder"
@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/lblEpisodeTitle"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:contentDescription="@string/episode_image_placeholder"
             android:src="@drawable/logo" />
 
@@ -51,7 +51,7 @@
             android:id="@+id/lblEpisodeFirstAired"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/lblEpisodeTitle"
+            android:layout_alignStart="@+id/lblEpisodeTitle"
             android:layout_below="@+id/imgEpisodeImage"
             android:layout_marginTop="14dp"
             android:text="@string/episode_first_aired_placeholder"
@@ -61,7 +61,7 @@
             android:id="@+id/lblOverviewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/lblEpisodeFirstAired"
+            android:layout_alignStart="@+id/lblEpisodeFirstAired"
             android:layout_below="@+id/lblEpisodeFirstAired"
             android:text="@string/heading_overview"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -70,7 +70,7 @@
             android:id="@+id/lblEpisodeOverview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/lblOverviewTitle"
+            android:layout_alignStart="@+id/lblOverviewTitle"
             android:layout_below="@+id/lblOverviewTitle"
             android:text="@string/overview_placeholder"
             android:textAppearance="?android:attr/textAppearanceMedium" />

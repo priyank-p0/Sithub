@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:paddingTop="4dp"
     android:paddingBottom="4dp"
-    android:layout_marginLeft="10dp">
+    android:layout_marginStart="10dp">
 
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/imgSearchPoster"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:contentDescription="@string/box_art_placeholder"
        />
@@ -29,7 +29,7 @@
         android:id="@+id/lblSearchYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblSearchTitle"
+        android:layout_alignStart="@+id/lblSearchTitle"
         android:layout_below="@+id/lblSearchTitle"
         android:text="@string/show_year_placeholder"
         android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -38,7 +38,7 @@
         android:id="@+id/lblSearchDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblSearchYear"
+        android:layout_alignStart="@+id/lblSearchYear"
         android:layout_below="@+id/lblSearchYear"
         android:text="@string/search_result_desc_placeholder"
         android:textAppearance="?android:attr/textAppearanceSmall"

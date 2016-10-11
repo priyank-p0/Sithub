@@ -4,7 +4,9 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.CursorLoader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +37,8 @@ public class SubscribedListFragment extends Fragment {
         private Adapter mWatchListAdapter;
         private ArrayList<SubscribedListGroup> mWatchListItems;
         private ExpandableListView mExpandableList;
-
+    static final String PROVIDER_NAME = "com.example.provider.Show";
+    static final Uri CONTENT_URI = Uri.parse("content://" + PROVIDER_NAME + "/episode");
         /**
          * Database helper object
          */
@@ -57,7 +60,9 @@ public class SubscribedListFragment extends Fragment {
                                  Bundle savedInstanceState) {
 
             mDbHelper = new SithubDatabaseHelper(getActivity());
-
+            CursorLoader cursorLoader = new CursorLoader(getActivity(), CONTENT_URI,
+                    null, null, null, null);
+            Cursor cr = cursorLoader.loadInBackground();
             Cursor c = mDbHelper.getWatchList();
 
             if (c.getCount() > 0) {

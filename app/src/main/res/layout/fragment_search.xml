@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="@string/txt_search_hint"
@@ -25,16 +25,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtSearch"
-        android:layout_alignLeft="@+id/txtSearch"
+        android:layout_alignStart="@+id/txtSearch"
         android:text="@string/search_button" />
 
     <TextView
         android:id="@+id/lblResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/btnSearch"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="18dp"
         android:text="@string/results"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -43,10 +43,10 @@
         android:id="@+id/search_results_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblResults"
+        android:layout_alignStart="@+id/lblResults"
         android:layout_below="@+id/lblResults"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginEnd="10dp">
     </ListView>
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

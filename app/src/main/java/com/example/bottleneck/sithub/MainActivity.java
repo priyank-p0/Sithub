@@ -24,7 +24,7 @@ import com.example.bottleneck.sithub.util.MyApplication;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     private DrawerLayout mDrawerLayout;
     public static ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         MyApplication application=(MyApplication)getApplication();
         mTracker = application.getDefaultTracker();
 
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 
     /* The click listner for ListView in the navigation drawer */
     private class DrawerItemClickListener implements
