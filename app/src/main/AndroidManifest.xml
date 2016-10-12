@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bottleneck.sithub">
+    package="com.example.bottleneck.sithub" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".util.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-        android:name=".util.MyApplication"
-        >
-
-        <provider android:name="com.example.bottleneck.sithub.ShowProvider" android:authorities="com.example.provider.Show">
-
-
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        <provider
+            android:name=".ShowProvider"
+            android:authorities="com.example.provider.Show" >
         </provider>
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,8 +27,7 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name"
-        >
+            android:label="@string/app_name" >
             <intent-filter android:label="@string/app_name" >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,14 +48,15 @@
         <activity android:name=".tvshow.ShowDetailActivity" >
         </activity>
         <activity
-            android:name="com.example.bottleneck.sithub.tvshow.SeasonEpisodeActivity"
+            android:name=".tvshow.SeasonEpisodeActivity"
             android:label="@string/title_activity_season_episode" >
         </activity>
+
         <receiver android:name=".widget.WidgetProvider" >
             <intent-filter>
-
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widgetproviderinfo" />
@@ -65,6 +65,10 @@
         <service
             android:name=".widget.WidgetRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

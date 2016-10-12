@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'MyAndroidKey'
+            keyPassword 'patel@123'
+            storeFile file('/Users/priyankpatel/Desktop/keystore/kestore_key.jks')
+            storePassword 'patel@123'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
-
     defaultConfig {
         applicationId "com.example.bottleneck.sithub"
         minSdkVersion 21
@@ -17,6 +24,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
 }
@@ -24,7 +32,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile "com.android.support:design:23.2.1"
+    compile 'com.android.support:design:23.2.1'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.android.support:support-v13:23.2.1'
     compile 'com.android.support:appcompat-v7:23.2.1'
@@ -36,7 +44,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:9.2.1'
     compile 'com.google.android.gms:play-services-analytics:9.2.1'
     compile 'com.android.support:multidex:1.0.0'
-
-
 }
 apply plugin: 'com.google.gms.google-services'
