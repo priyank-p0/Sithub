@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'MyAndroidKey'
+            keyAlias 'ReleaseKey'
             keyPassword 'patel@123'
-            storeFile file('/Users/priyankpatel/Desktop/keystore/kestore_key.jks')
+            storeFile file('keystores/release.keystore')
             storePassword 'patel@123'
         }
     }
@@ -30,19 +30,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:design:23.2.1'
-    compile 'com.android.support:support-v4:23.2.1'
-    compile 'com.android.support:support-v13:23.2.1'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:cardview-v7:23.2.1'
-    compile 'com.android.support:recyclerview-v7:23.2.1'
-    compile 'com.mcxiaoke.volley:library:1.0.+@aar'
-    compile 'net.danlew:android.joda:2.7.1'
-    compile 'com.google.android.gms:play-services:9.2.1'
-    compile 'com.google.android.gms:play-services-ads:9.2.1'
-    compile 'com.google.android.gms:play-services-analytics:9.2.1'
-    compile 'com.android.support:multidex:1.0.0'
+compile fileTree(dir: 'libs', include: ['*.jar'])
+testCompile 'junit:junit:4.12'
+compile "com.android.support:design:23.2.1"
+compile 'com.android.support:support-v4:23.2.1'
+compile 'com.android.support:support-v13:23.2.1'
+compile 'com.android.support:appcompat-v7:23.2.1'
+compile 'com.android.support:cardview-v7:23.2.1'
+compile 'com.android.support:recyclerview-v7:23.2.1'
+compile 'com.mcxiaoke.volley:library:1.0.+@aar'
+compile 'net.danlew:android.joda:2.7.1'
+compile 'com.google.android.gms:play-services:9.2.1'
+compile 'com.google.android.gms:play-services-ads:9.2.1'
+compile 'com.google.android.gms:play-services-analytics:9.2.1'
+compile 'com.android.support:multidex:1.0.0'
+
 }
 apply plugin: 'com.google.gms.google-services'
